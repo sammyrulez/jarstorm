@@ -8,7 +8,7 @@ jetty()
 
 seq(lessSettings:_*)
 
-(resourceManaged in (Compile, LessKeys.less)) <<= (crossTarget in Compile)(_ / "src" / "main" / "webapp" / "css")
+(resourceManaged in (Compile, LessKeys.less)) <<= (target in Compile)(_ / "webapp" / "css")
 
 (LessKeys.filter in (Compile, LessKeys.less)) := "bootstrap.less"
 
