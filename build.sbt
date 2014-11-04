@@ -6,6 +6,12 @@ scalaVersion := "2.10.4"
 
 jetty()
 
+seq(lessSettings:_*)
+
+(resourceManaged in (Compile, LessKeys.less)) <<= (crossTarget in Compile)(_ / "src" / "main" / "webapp" / "css")
+
+(LessKeys.filter in (Compile, LessKeys.less)) := "bootstrap.less"
+
 libraryDependencies += "javax.servlet" % "servlet-api" % "2.5" % "provided"
 
 libraryDependencies += "com.typesafe.akka" % "akka-actor_2.10" % "2.3.6"
