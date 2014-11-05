@@ -8,9 +8,19 @@ jetty()
 
 seq(lessSettings:_*)
 
+(LessKeys.filter in (Compile, LessKeys.less)) := "bootstrap.less"
+
 (resourceManaged in (Compile, LessKeys.less)) <<= (target in Compile)(_ / "webapp" / "css")
 
-(LessKeys.filter in (Compile, LessKeys.less)) := "bootstrap.less"
+seq(jasmineSettings : _*)
+
+appJsDir <+= sourceDirectory { src => src / "main" / "webapp" / "js"}
+
+appJsLibDir <+= sourceDirectory { src => src / "main" / "webapp" / "js" / "lib" }
+
+jasmineTestDir <+= sourceDirectory { src => src / "test" /  "js" }
+
+jasmineConfFile <+= sourceDirectory { src => src / "test" / "js" / "test.dependencies.js" }
 
 libraryDependencies += "javax.servlet" % "servlet-api" % "2.5" % "provided"
 
