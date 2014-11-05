@@ -16,7 +16,7 @@ seq(jasmineSettings : _*)
 
 appJsDir <+= sourceDirectory { src => src / "main" / "webapp" / "js"}
 
-appJsLibDir <+= sourceDirectory { src => src / "main" / "webapp" / "js" / "lib" }
+appJsLibDir <+= sourceDirectory { src => src / "main" / "webapp" / "js" / "libs" }
 
 jasmineTestDir <+= sourceDirectory { src => src / "test" /  "js" }
 
