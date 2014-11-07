@@ -14,13 +14,13 @@ seq(lessSettings:_*)
 
 seq(jasmineSettings : _*)
 
-appJsDir <+= sourceDirectory { src => src / "main" / "webapp" / "js"}
+appJsDir <+= sourceDirectory { src => src / "main" / "webapp" / "static" / "js" }
 
-appJsLibDir <+= sourceDirectory { src => src / "main" / "webapp" / "js" / "libs" }
+appJsLibDir <+= sourceDirectory { src => src / "main" / "webapp" / "static" / "js" / "lib" }
 
-jasmineTestDir <+= sourceDirectory { src => src / "test" /  "js" }
+jasmineTestDir <+= sourceDirectory { src => src / "test" / "webapp" / "static" / "js" }
 
-jasmineConfFile <+= sourceDirectory { src => src / "test" / "js" / "test.dependencies.js" }
+jasmineConfFile <+= sourceDirectory { src => src / "test" / "webapp" / "static" / "js" / "test.dependencies.js" }
 
 libraryDependencies += "javax.servlet" % "servlet-api" % "2.5" % "provided"
 
